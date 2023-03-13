@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="sidebar-header">
+        <img class="notification" src="https://cdn-icons-png.flaticon.com/128/3602/3602145.png" alt="">
+        <img class="sidebar-header-profile-img" src="/assets/profile.jpg" alt="">
+    </div>
+    <h4>Companies</h4>
+
+    <div class="company-container" *ngFor="let company of companies">
+        <h4>{{company?.companyName}}</h4>
+        <div class="company-content p-55">
+            <div *ngIf="company?.team.length > 0">
+                <div *ngFor="let team of company?.team">
+                    <h4>{{team?.teamName}}</h4>
+                    <div class="p-55 person-container">
+                        <span class="person-name">{{team?.personName}}</span>
+                        <span class="send">
+                            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 20 20"
+                                className="h-4 w-4 rotate-90" height="1.2em" width="1.2em"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h4>Send Again</h4>
+        <div class="person-container">
+            <div *ngFor="let person of persons">
+                <img *ngIf="person?.img" src="{{person?.img}}" alt="" class=" round-img"
+                    style="background-color: #999;">
+                <div *ngIf="!person?.img" class="name-letters">
+                    &nbsp;{{person?.firstName?.slice(0, 1)}}
+                    {{person?.lastName?.slice(0, 1)}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
